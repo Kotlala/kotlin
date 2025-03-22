@@ -1,0 +1,18 @@
+import kotlin.random.Random
+fun main() {
+    val trials = 1_000_000 // Количество экспериментов (чем больше, тем точнее результат)
+    var successes = 0      // Счетчик успешных исходов (сумма равна 7)
+
+    for (i in 1..trials) {
+        val die1 = Random.nextInt(1, 7) // Бросаем первую кость (от 1 до 6)
+        val die2 = Random.nextInt(1, 7) // Бросаем вторую кость
+        val die3 = Random.nextInt(1, 7) // Бросаем третью кость
+
+        if (die1 + die2 + die3 == 7) {   // Проверяем условие
+            successes++
+        }
+    }
+
+    val probability = successes.toDouble() / trials
+    println("Вероятность: ${String.format("%.2f", probability)}")
+}
